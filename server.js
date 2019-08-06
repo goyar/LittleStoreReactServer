@@ -5,10 +5,12 @@ global.env_cfg = process.env;
 // requirements
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const HTTP_PORT = env_cfg.HTTP_PORT;
 const app = express();
 
+app.use(cors());
 app.use(express.static(path.join(__dirname,'./public')));
 
 // request loging middleware
